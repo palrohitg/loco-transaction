@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:latest
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - TZ=Asia/Kolkata
+      - MYSQL_ROOT_PASSWORD=sergey
+      - MYSQL_DATABASE=local_transaction
+      - MYSQL_PASSWORD=sergey
+      - MYSQL_USER=sergey
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network-v5
+    restart: always
+
+  web:
+    build: .
+    environment:
+      - TZ=Asia/Kolkata
+      - DB_PORT=3306
+      - DB_USER=sergey
+      - DB_PASSWORD=sergey
+      - DB_NAME=local_transaction
+      - LOCO_DATABASE_URL=sergey:sergey@tcp(db:3306)/local_transaction?charset=utf8mb4&parseTime=True&loc=Local
+    command: go run main.go
+    volumes:
+      - .:/app
+    ports:
+      - "8003:8003"
+    depends_on:
+      - db
+    networks:
+      - my-network-v5
+    restart: on-failure
+
+volumes:
+  mysql_data:
+
+networks:
+  my-network-v5:
+    external: true
+
