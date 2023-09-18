@@ -9,7 +9,7 @@
 ## :computer: Tech Stack
 
 * [Golang](https://go.dev/)
-* [Postgres](https://www.mysql.com/)
+* [MySQL](https://www.mysql.com/)
 * [Gin](https://gin-gonic.com/)
 * [Docker](https://www.docker.com/)
 
