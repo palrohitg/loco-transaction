@@ -55,7 +55,7 @@ func GetTransactionByCategory(db *gorm.DB, category string) ([]models.Transactio
 		return transaction, res.Error
 	}
 	if res.RowsAffected == 0 {
-		return transaction, config.ValidationError("Question Doesn't exists")
+		return transaction, config.ValidationError(config.TransactionDoesNotExists)
 	}
 	return transaction, nil
 }
@@ -77,7 +77,7 @@ func CalculateSumByTransaction(db *gorm.DB, transactionId int) (float64, error) 
          FROM TransactionHierarchy;
      `, transactionId).Scan(&sum).Error; err != nil {
 		tx.Rollback()
-		return 0, config.ValidationErrorReal("running sql query")
+		return 0, config.ValidationErrorReal(config.SumAPIError)
 	}
 	tx.Commit()
 	return sum, nil
