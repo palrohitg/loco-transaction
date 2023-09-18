@@ -10,7 +10,7 @@ import (
 	"log"
 )
 
-const DefaultPort = "8069"
+const DefaultPort = "8003"
 const Port = "PORT"
 
 func main() {

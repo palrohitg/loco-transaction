@@ -27,7 +27,7 @@ services:
       - LOCO_DATABASE_URL=sergey:sergey@tcp(db:3306)/local_transaction?charset=utf8mb4&parseTime=True&loc=Local
     command: go run main.go
     volumes:
-      - .:/app
+      - .:/loco-transaction
     ports:
       - "8003:8003"
     depends_on:

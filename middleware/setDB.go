@@ -18,6 +18,3 @@ func SetDBToContext(db *gorm.DB) gin.HandlerFunc {
 		c.Next()
 	}
 }
-func SetForConsumer(db *gorm.DB) {
-	DbcConsumer = db
-}
