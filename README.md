@@ -26,15 +26,11 @@
         chmod +x application_container_start.sh
         ./application_container_start.sh
 
-3. To Setup and Run Load Testing / Request:
-
-        chmod +x test_container_start.sh
-        ./test_container_start.sh
 
 
 ## Logs of Docker Shell
-![LogService](https://github-production-user-asset-6210df.s3.amazonaws.com/40069230/250387944-decd7b32-12a0-4ffe-ae77-329ebcfb549e.png)
-![LogService](https://github-production-user-asset-6210df.s3.amazonaws.com/40069230/250387972-2aabc407-d806-41a4-a024-d3b8a56069e7.png)
+![LogService](https://github.com/palrohitg/Machine-Coding/assets/40069230/22c4e7d4-9c8b-46ec-bc3e-f22482b5b6fe)
+![LogService](https://github.com/palrohitg/Machine-Coding/assets/40069230/be1869c0-ff97-4fbf-9b72-cc5e7cfbe126)
 
 ## 📜 LICENSE
 

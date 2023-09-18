@@ -1,0 +1,17 @@
+curl --location 'http://localhost:8003/healthcheck' \
+--header 'Cookie: csrftoken=jH2qzTXI1DfSRW01HlHj0mJq49lqiMJ5BAGf6pZKhIfiz6YoLim14bD6V06tde7v'
+
+
+
+curl --location 'http://localhost:8003/api/v1/transaction-service/sum/20' \
+--header 'Cookie: csrftoken=jH2qzTXI1DfSRW01HlHj0mJq49lqiMJ5BAGf6pZKhIfiz6YoLim14bD6V06tde7v'
+
+
+curl --location --request PUT 'http://localhost:8003/api/v1/transaction-service/transaction' \
+--header 'Content-Type: application/json' \
+--data '{
+"id" : 14,
+"parent_id": 12,
+"amount": 12,
+"type": "shopping"
+}'
