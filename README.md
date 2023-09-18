@@ -4,7 +4,7 @@
 
 
 ## High Level Design:
-![LocoTransaction](https://github-production-user-asset-6210df.s3.amazonaws.com/40069230/268563842-67d59d56-4385-4f96-9e0b-a12e5d36bf3d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230918%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230918T055259Z&X-Amz-Expires=300&X-Amz-Signature=f3575dd9845c6095c66cacbe4b0fc57b01c0cb07fb5bd237bbba0870178c2f6d&X-Amz-SignedHeaders=host&actor_id=40069230&key_id=0&repo_id=294484791)
+![LocoTransaction](https://github.com/palrohitg/Machine-Coding/assets/40069230/49cbbdb0-df8a-4f22-bbfe-fd82c12bce8e)
 
 ## :computer: Tech Stack
 
