@@ -19,7 +19,7 @@
 
 1. Clone the repository by using Git Client:
 
-         git clone https://github.com/palrohitg/logservice.git
+         git clone https://github.com/palrohitg/loco-transaction.git
 
 2. To Setup and Run Application + DataBase + CRON:
 
