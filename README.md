@@ -21,7 +21,7 @@
 
          git clone https://github.com/palrohitg/loco-transaction.git
 
-2. To Setup and Run Application + DataBase + CRON:
+2. To Setup and Run Application + DataBase:
 
         chmod +x application_container_start.sh
         ./application_container_start.sh
