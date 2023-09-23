@@ -62,7 +62,7 @@ func GetTransactionByCategory(db *gorm.DB, category string) ([]models.Transactio
 
 func CalculateSumByTransaction(db *gorm.DB, transactionId int) (float64, error) {
 	var sum float64
-	tx := db.Begin()
+	//tx := db.Begin()
 	if err := db.Raw(`
          WITH RECURSIVE TransactionHierarchy AS (
              SELECT transaction_id, amount, parent_id
@@ -76,9 +76,9 @@ func CalculateSumByTransaction(db *gorm.DB, transactionId int) (float64, error) 
          SELECT SUM(amount) AS sum
          FROM TransactionHierarchy;
      `, transactionId).Scan(&sum).Error; err != nil {
-		tx.Rollback()
+		//tx.Rollback()
 		return 0, config.ValidationErrorReal(config.SumAPIError)
 	}
-	tx.Commit()
+	//tx.Commit()
 	return sum, nil
 }
