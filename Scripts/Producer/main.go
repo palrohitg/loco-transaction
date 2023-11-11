@@ -1,19 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 type Consumer struct {
 	msgs *chan int
+	done *chan bool
 }
 
-func NewConsumer(msgs *chan int) *Consumer {
-	return &Consumer{msgs: msgs}
+func NewConsumer(msgs *chan int, done *chan bool) *Consumer {
+	return &Consumer{msgs: msgs, done: done}
 }
 
+// Infinite Listening for the new events
 func (c *Consumer) consume() {
 	fmt.Println("consume : Started")
 	for {
-		msg := <-*c.msgs
+		msg, more := <-*c.msgs
+		if !more {
+			fmt.Println("consume : done")
+			*c.done <- true
+			return
+		}
+		//time.Sleep(1 * time.Second)
 		fmt.Println("consume : Received:", msg)
 	}
 }
@@ -28,15 +39,37 @@ func NewProducer(msgs *chan int, done *chan bool) *Producer {
 	return &Producer{msgs: msgs, done: done}
 }
 
+//
+//func (p *Producer) produce(max int) {
+//	fmt.Println("produce : started")
+//	for i := 0; i < max; i++ {
+//		*p.msgs <- i // writing message here
+//		fmt.Println("produce : Sending", i)
+//	}
+//	*p.done <- true // writing to the done statements we have
+//	fmt.Println("produce : Done")
+//}
+
 func (p *Producer) produce(max int) {
 	fmt.Println("produce : started")
 	for i := 0; i < max; i++ {
+		*p.msgs <- i // writing message here
 		fmt.Println("produce : Sending", i)
-		*p.msgs <- i
 	}
-	*p.done <- true
-	fmt.Println("produce : Done")
+	//*p.done <- true // writing to the done statements we have
+	close(*p.msgs) // signals to close the channels now
+	//fmt.Println("produce : Done")
 }
-func main() {
 
+func main() {
+	max := flag.Int("n", 1, "defines the number of messages")
+	var msgs = make(chan int)
+	var done = make(chan bool)
+
+	go NewProducer(&msgs, &done).produce(*max)
+	//time.Sleep(1 * time.Second)
+	go NewConsumer(&msgs, &done).consume()
+
+	<-done // Once all the Message is produce done
+	fmt.Println("I'm here is the last statement here")
 }
