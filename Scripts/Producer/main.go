@@ -40,7 +40,6 @@ func NewProducer(msgs *chan int, done *chan bool) *Producer {
 	return &Producer{msgs: msgs, done: done}
 }
 
-//
 //func (p *Producer) produce(max int) {
 //	fmt.Println("produce : started")
 //	for i := 0; i < max; i++ {
@@ -64,8 +63,8 @@ func (p *Producer) produce(max int) {
 
 func main() {
 	max := flag.Int("n", 1, "defines the number of messages")
-	var msgs = make(chan int)
-	var done = make(chan bool)
+	var msgs = make(chan int)  // create one message channel
+	var done = make(chan bool) // create one done channel
 
 	go NewProducer(&msgs, &done).produce(*max)
 	//time.Sleep(1 * time.Second)

@@ -9,6 +9,23 @@ import (
 
 	Mutex is a lock for the sync.
 	access of the resources we have in code
+	type Shape interface {
+		area() float64
+	}
+
+	type Rectangle struct {
+		Width float64
+		Height float64
+	}
+
+
+	func (r rectangle) area() float64 {
+		return r.Width * r.Height
+	}
+
+	func calculateArea(s shape) {
+		fmt.Printf("Area : %f\n",s.area())
+	}
 */
 
 var (
@@ -39,13 +56,25 @@ func deposit(value int, wg *sync.WaitGroup) {
 	wg.Done()
 }
 
+// Higher Order functions which receive the
+// Arguments and find the new ones etc.
+func applyOperation(value int, operation func(int) int) int {
+	return operation(value)
+}
+
+func double(x int) int {
+	return x * 2
+}
+
 func main() {
+	results := applyOperation(5, double)
+	fmt.Println(results)
 	fmt.Println("Go Mutex Example")
 	var wg sync.WaitGroup // declared
 	wg.Add(2)             // add, Done , wait()
 	go withDraw(700, &wg)
 	go deposit(500, &wg)
-	wg.Wait() // wait untill all the go-routines will be done
+	wg.Wait() // wait until all the go-routines will be done
 	fmt.Printf("New balance %d\n", balance)
 	return
 }
