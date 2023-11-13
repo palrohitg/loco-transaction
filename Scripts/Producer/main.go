@@ -17,6 +17,7 @@ func NewConsumer(msgs *chan int, done *chan bool) *Consumer {
 // Infinite Listening for the new events
 func (c *Consumer) consume() {
 	fmt.Println("consume : Started")
+	// this is the for each loop we are  using it here
 	for {
 		msg, more := <-*c.msgs
 		if !more {
