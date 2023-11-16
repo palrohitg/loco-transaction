@@ -7,6 +7,5 @@ package main
     a.RwMutex : Multiple readers can reads the data but anyone can access.
 */
 func main() {
-
 	return
 }
