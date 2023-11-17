@@ -5,6 +5,11 @@ import (
 	"fmt"
 )
 
+/*
+- Isitio Basically add / inject a pod inside the containers and finally.
+- for each request we have the logically to trafif
+
+*/
 type Consumer struct {
 	msgs *chan int
 	done *chan bool
