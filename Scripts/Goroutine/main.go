@@ -9,10 +9,13 @@ import (
 	Find the concurrency and others topics of golang
 	Go Routine : A goroutine is a functions is runs independently that functions is started here.
 	Channel : A Pipeline of sending and receiving  the data.
-
 	Concurrency  : Handles to run multiple tasks at once, but only one will be running each times.
 	Parellisms :  There are many tasks runs at the same times.
-
+	Gorilla/Websocket is using
+	ch := make(chan int, 3) // Buffered channel with a capacity of 3
+	Has some kinds of capacities while.
+	while the unbuffered channels don't have the single data you can share during the whole
+	processors.
 */
 
 func execute(some string) {
