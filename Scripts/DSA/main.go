@@ -2,26 +2,23 @@ package main
 
 import "fmt"
 
-/*
-	DSA Stack Queue Implementation
-	You can check,  in
+func ways(n int, m int, i int, j int) int {
+	// base
+	if i < 0 || i > n || j < 0 || j > m {
+		return 0
+	}
 
-	sync.Mutex or sync.
-*/
+	if i == m-1 && j == n-1 {
+		return 1
+	}
+
+	return ways(m, n, i+1, j) + ways(m, n, i, j+1)
+}
 
 func main() {
-
-	//var array = []int{4, 1, 2, 3}
-	//var target = 10
-	//
-	//for i := 0; i < len(array); i++ {
-	//	fmt.Println(array[i])
-	//}
-	//fmt.Println(array)
-	//fmt.Println(target)
-
-	x := 5
-	fmt.Println(&x)
-
+	m := 2
+	n := 2
+	ans := ways(n, m, 0, 0)
+	fmt.Println(ans)
 	return
 }

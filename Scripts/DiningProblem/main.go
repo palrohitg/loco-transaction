@@ -15,7 +15,6 @@ var dining sync.WaitGroup
 // Environments
 func main() {
 	dining.Add(5)
-
 	fmt.Println(ph)
 	return
 }

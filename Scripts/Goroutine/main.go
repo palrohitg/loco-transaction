@@ -43,7 +43,7 @@ func main() {
 	//var wg sync.WaitGroup
 	//
 	//for i := 1; i < 5; i++ {
-	//	wg.Add(1)
+	//	wg.Add(1)`
 	//	first := i
 	//	go func() {
 	//		defer wg.Done()
