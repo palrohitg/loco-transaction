@@ -37,7 +37,7 @@ func worker2(id int) {
 func main() {
 	//go execute("first")
 	//go execute("second")
-	//fmt.Println("Finally printed here")
+	//fmt.Println("Finally printedw here")
 
 	// WaitGroups Concepts and When all the GoRoutine is not executed Implementation here
 	//var wg sync.WaitGroup
