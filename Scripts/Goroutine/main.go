@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -35,13 +36,14 @@ func worker2(id int) {
 // Channels in the code itself and usage of the same
 
 func main() {
-	//go execute("first")
-	//go execute("second")
-	//fmt.Println("Finally printedw here")
+	go execute("first")
+	go execute("second")
+	fmt.Println("Finally printedw here")
 
-	// WaitGroups Concepts and When all the GoRoutine is not executed Implementation here
-	//var wg sync.WaitGroup
-	//
+	//WaitGroups Concepts and When all the GoRoutine is not executed Implementation here
+	var wg sync.WaitGroup
+	fmt.Println(wg)
+
 	//for i := 1; i < 5; i++ {
 	//	wg.Add(1)`
 	//	first := i
@@ -52,9 +54,10 @@ func main() {
 	//}
 	//wg.Wait() // waiting for the process to complete the tasks here
 	//return
-	data, abrr := getAmountOfRewards(5, 5, 125)
-	fmt.Println(data)
-	fmt.Println(abrr) // 8,5,5 7,5,5
+	//data, abrr := getAmountOfRewards(5, 5, 125)
+	//fmt.Println(data)
+	//fmt.Println(abrr) // 8,5,5 7,5,5
+	return
 
 }
 
