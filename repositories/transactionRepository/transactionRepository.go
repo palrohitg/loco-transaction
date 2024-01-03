@@ -79,6 +79,13 @@ func CalculateSumByTransaction(db *gorm.DB, transactionId int) (float64, error) 
 		//tx.Rollback()
 		return 0, config.ValidationErrorReal(config.SumAPIError)
 	}
-	//tx.Commit()
+	//tx.Commit() // check if the error is happen or not.
 	return sum, nil
 }
+
+// Handle Scenerio of Commit and Rollback Transactions in Golang
+// Concurrency Implementation and All logic in one go.
+
+/*
+
+ */
